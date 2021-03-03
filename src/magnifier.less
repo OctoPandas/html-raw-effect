@@ -1,0 +1,24 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#cat {
+  width: 300px;
+  height: 300px;
+  background: #000 url(https://placekitten.com/1200/1200) no-repeat;
+  background-size: 300px 300px;
+}
+
+// `background` 属性简写参见
+// https://www.w3schools.com/cssref/css3_pr_background.asp
+
+#cat[zoomed] {
+  background-size: 1200px 1200px;
+  // 优化一：将不使用百分比定位元素（这样会更加灵敏）
+  // background-position: calc(var(--x) * 100%) calc(var(--y) * 100%);
+  // 即移动 1px 相当于大图移动 3px
+  background-position: calc(var(--x) * -3px) calc(var(--y) * -3px);
+}
